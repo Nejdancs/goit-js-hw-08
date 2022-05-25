@@ -2,18 +2,22 @@ import throttle from 'lodash.throttle';
 import isEmail from 'validator/es/lib/isEmail';
 import '../css/common.css';
 import '../css/03-feedback.css';
+import storage from './storage';
 
+const { saveLocaleStorage, getLocalStorage } = storage;
 const formRef = document.querySelector('.feedback-form');
 const LOCALSTORAGE_KEY = 'feedback-form-state';
-let formData = getLocalStorage(LOCALSTORAGE_KEY);
+let formData = getLocalStorage(LOCALSTORAGE_KEY) || {};
 
 formRef.addEventListener('input', throttle(onFormInput, 500));
 formRef.addEventListener('submit', onSubmit);
 
 updateFormInput();
 
-function onFormInput(e) {
-  saveLocaleStorage(e, formData);
+function onFormInput({ target: { value, name } }) {
+  formData[name] = value;
+
+  saveLocaleStorage(LOCALSTORAGE_KEY, formData);
 }
 
 function updateFormInput() {
@@ -27,31 +31,6 @@ function updateFormInput() {
   keysFormData.forEach(key => {
     elements[key].value = formData[key];
   });
-}
-
-function saveLocaleStorage({ target: { value, name } }, formData) {
-  formData[name] = value;
-
-  try {
-    const formDataToJson = JSON.stringify(formData);
-    localStorage.setItem(LOCALSTORAGE_KEY, formDataToJson);
-  } catch (error) {
-    console.error(error.message);
-  }
-}
-
-function getLocalStorage(key) {
-  const savedData = localStorage.getItem(key);
-
-  if (!savedData) {
-    return {};
-  }
-
-  try {
-    return JSON.parse(savedData);
-  } catch (error) {
-    console.log(error.message);
-  }
 }
 
 function onSubmit(e) {
