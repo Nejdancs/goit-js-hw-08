@@ -5,7 +5,7 @@ import '../css/03-feedback.css';
 
 const formRef = document.querySelector('.feedback-form');
 const LOCALSTORAGE_KEY = 'feedback-form-state';
-let formData = getLocalStorage(LOCALSTORAGE_KEY) ?? {};
+let formData = getLocalStorage(LOCALSTORAGE_KEY);
 
 formRef.addEventListener('input', throttle(onFormInput, 500));
 formRef.addEventListener('submit', onSubmit);
@@ -44,7 +44,7 @@ function getLocalStorage(key) {
   const savedData = localStorage.getItem(key);
 
   if (!savedData) {
-    return;
+    return {};
   }
 
   try {
