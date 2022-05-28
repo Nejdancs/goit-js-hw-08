@@ -7,7 +7,7 @@ import storage from './storage';
 const { saveLocaleStorage, getLocalStorage } = storage;
 const formRef = document.querySelector('.feedback-form');
 const LOCALSTORAGE_KEY = 'feedback-form-state';
-let formData = getLocalStorage(LOCALSTORAGE_KEY) || {};
+let formData = getLocalStorage(LOCALSTORAGE_KEY) ?? {};
 
 formRef.addEventListener('input', throttle(onFormInput, 500));
 formRef.addEventListener('submit', onSubmit);
