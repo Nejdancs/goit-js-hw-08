@@ -1,9 +1,9 @@
-[Задание 1 - библиотека SimpleLightbox](https://nejdancs.github.io/goit-js-hw-08/01-gallery.html) 
+[Задание 1 - библиотека SimpleLightbox](https://nejdancs.github.io/goit-js-hw-08/01-gallery.html) <br>
 Подключена библиотека SimpleLightbox
 
-[Задание 2 - видео плеер](https://nejdancs.github.io/goit-js-hw-08/02-video.html)
-Cкрипт который позволяет сохранять текущее время воспроизведения видео в локальное хранилище и, 
+[Задание 2 - видео плеер](https://nejdancs.github.io/goit-js-hw-08/02-video.html)<br>
+Cкрипт который позволяет сохранять текущее время воспроизведения видео в локальное хранилище и, <br>
 при перезагрузке страницы, продолжать воспроизводить видео с этого времени.
 
-[Задание 3 - форма обратной связи](https://nejdancs.github.io/goit-js-hw-08/03-feedback.html)
+[Задание 3 - форма обратной связи](https://nejdancs.github.io/goit-js-hw-08/03-feedback.html)<br>
 Скрипт сохраняет значения полей в локальное хранилище когда пользователь что-то печатает.
